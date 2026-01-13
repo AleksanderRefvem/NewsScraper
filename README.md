@@ -13,22 +13,35 @@ A Python CLI tool that aggregates headlines from trusted international news sour
 
 ## Installation
 
+### Bash (Linux/macOS)
 ```bash
-# Clone and navigate to project
 cd NewsScraper
 
-# Create virtual environment
 python3 -m venv venv
 source venv/bin/activate
 
-# Install dependencies
 pip install -r requirements.txt
 ```
 
+### PowerShell (Windows)
+```powershell
+cd NewsScraper
+
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+
+pip install -r requirements.txt
+```
+
+> **Note:** If you get an execution policy error, run:
+> ```powershell
+> Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+> ```
+
 ## Usage
 
+### Bash (Linux/macOS)
 ```bash
-# Activate virtual environment
 source venv/bin/activate
 
 # Fetch latest news from all sources
@@ -44,8 +57,24 @@ python -m src.main headlines -n 10
 python -m src.main headlines -s "BBC World"
 ```
 
-Or run directly from the `src` directory:
+### PowerShell (Windows)
+```powershell
+.\venv\Scripts\Activate.ps1
 
+# Fetch latest news from all sources
+python -m src.main fetch
+
+# View latest headlines
+python -m src.main headlines
+
+# View last 10 headlines
+python -m src.main headlines -n 10
+
+# Filter by source
+python -m src.main headlines -s "BBC World"
+```
+
+### Alternative: Run from src directory
 ```bash
 cd src
 python main.py fetch
@@ -53,7 +82,6 @@ python main.py headlines
 ```
 
 ## Project Structure
-
 ```
 NewsScraper/
 ├── src/
